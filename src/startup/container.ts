@@ -3,13 +3,13 @@ import { createContainer, asClass, asValue, asFunction } from "awilix";
 import Server from "./index";
 const config = require("../common/index");
 //Repositorios
-import { LoginRespository, AuthRepositorySql } from "../repositories/index";
+import Repositorys from "../repositories/index";
 
 //servicios
-import { LoginService, AuthService } from "../services/index";
+import Services from "../services/index";
 
 //Controladores
-import { LoginController, AuthController } from "../controllers/index";
+import Controllers from "../controllers/index";
 
 const { LoginRoutes, AuthRoutes } = require("../routes/index.routes");
 
@@ -25,12 +25,16 @@ container
   })
   //Registrar servicios
   .register({
-    LoginService: asClass(LoginService).singleton(),
-    AuthService: asClass(AuthService).singleton(),
+    LoginService: asClass(Services.LoginService).singleton(),
+    AuthService: asClass(Services.AuthService).singleton(),
   })
   .register({
-    LoginController: asClass(LoginController.bind(LoginController)).singleton(),
-    AuthController: asClass(AuthController.bind(AuthController)).singleton(),
+    LoginController: asClass(
+      Controllers.LoginController.bind(Controllers.LoginController)
+    ).singleton(),
+    AuthController: asClass(
+      Controllers.AuthController.bind(Controllers.AuthController)
+    ).singleton(),
   })
   .register({
     LoginRoutes: asFunction(LoginRoutes).singleton(),
@@ -39,8 +43,8 @@ container
 
   //Repositorios
   .register({
-    LoginRepository: asClass(LoginRespository).singleton(),
-    AuthRepositorySql: asClass(AuthRepositorySql).singleton(),
+    LoginRepository: asClass(Repositorys.LoginRespository).singleton(),
+    AuthRepositorySql: asClass(Repositorys.AuthRepositorySql).singleton(),
   });
 
 module.exports = container;

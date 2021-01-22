@@ -1,10 +1,10 @@
 // import { Express } from "express";
 const Express = require("express");
-let _express:any = null;
-let _config:any = null;
+let _express: any = null;
+let _config: any = null;
 
 export default class Server {
-  constructor({ config, router }) {
+  constructor({ config = null, router = null }) {
     _config = config;
     _express = Express().use(router);
   }

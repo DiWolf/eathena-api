@@ -1,3 +1,4 @@
 export interface AuthRepository {
-    authenticate(userid: string, password: string): Promise<string>;
+  authenticate(userid: string, password: string): Promise<any>;
+  renovarToken(usuario: any): Promise<any>;
 }

@@ -4,7 +4,7 @@ const {
   ValidarUsuarioMiddleware,
   AdminMiddleware,
 } = require("../middlewares/index");
-module.exports = function ({ LoginController }) {
+module.exports = function ({ LoginController }: any) {
   const router = Router();
 
   router.get(

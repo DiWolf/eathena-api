@@ -1,7 +1,7 @@
 import { Request, request, Response, response } from "express";
-let _loginservice = null;
+let _loginservice: any = null;
 export class LoginController {
-  constructor({ LoginService }) {
+  constructor({LoginService}: any) {
     _loginservice = LoginService;
   }
 

@@ -7,12 +7,12 @@ module.exports = async function (req: any, res: any, next: any) {
       const error = new Error();
       error.message =
         "No se puede determinar la id de sesión por favor intenta nuevamente";
-      error.status = 400;
+      //error.status = 400;
       throw error;
     }
     const [
       row,
-    ] = await connector.execute(
+    ]:any = await connector.execute(
       "SELECT account_id,userid,level FROM login WHERE account_id = ? AND state = 0 LIMIT 1",
       [account_id]
     );

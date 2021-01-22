@@ -1,7 +1,7 @@
 import { Login } from "../repositories/domain/login";
-let _loginrepository = null;
+let _loginrepository: any = null;
 export class LoginService {
-  constructor({ LoginRepository }) {
+  constructor({LoginRepository}: any) {
     _loginrepository = LoginRepository;
   }
 

@@ -25,4 +25,12 @@ export class AuthRepositorySql implements AuthRepository {
       throw Error("Usuario o contraseña no validos.");
     }
   }
+
+  public async renovarToken(usuario: any): Promise<any> {
+    try {
+      console.log(usuario);
+    } catch (error) {
+      throw Error(error);
+    }
+  }
 }

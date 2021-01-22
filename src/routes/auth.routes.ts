@@ -1,8 +1,8 @@
-import { Router } from 'express';
-module.exports = function({AuthController}){
-    const router = Router(); 
+import { Router } from "express";
+module.exports = function ({AuthController}: any) {
+  const router = Router();
 
-    router.post('/', AuthController.authenticate)
+  router.post("/", AuthController.authenticate);
 
-    return router;
-}
+  return router;
+};

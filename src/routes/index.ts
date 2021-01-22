@@ -4,7 +4,7 @@ import helmet from "helmet";
 import compression from "compression";
 require("express-async-errors");
 const { ErrorMiddleware } = require("../middlewares");
-module.exports = function ({ LoginRoutes, AuthRoutes }) {
+module.exports = function ({ LoginRoutes, AuthRoutes }: any) {
   const crm = express.Router();
   const router = express.Router();
 
