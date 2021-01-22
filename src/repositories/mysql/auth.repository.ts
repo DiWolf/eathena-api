@@ -26,9 +26,12 @@ export class AuthRepositorySql implements AuthRepository {
     }
   }
 
-  public async renovarToken(usuario: any): Promise<any> {
+  public async renovarToken(user: any): Promise<any> {
     try {
-      console.log(usuario);
+      const { account_id, userid, level } = user;
+      const token = await generarJWT(account_id, userid, level);
+      return {token,user}
+      
     } catch (error) {
       throw Error(error);
     }

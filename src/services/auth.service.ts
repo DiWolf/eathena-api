@@ -16,6 +16,7 @@ export class AuthService {
   }
 
   public async renovarToken(usuario: any): Promise<any> {
+   
     const data = await _autherepository.renovarToken(usuario);
     if (!data) {
       const error = new Error();
