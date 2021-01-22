@@ -1,7 +1,7 @@
 import express from "express";
-import cors from "cors";
+const cors = require("cors");
 import helmet from "helmet";
-import compression from "compression";
+const compression = require("compression");
 require("express-async-errors");
 const { ErrorMiddleware } = require("../middlewares");
 module.exports = function ({ LoginRoutes, AuthRoutes }: any) {
