@@ -1,6 +1,6 @@
-import { TestMySql } from "./mysql/test.repository";
+import { AuthRepositorySql } from "./mysql/auth.repository";
 import { LoginRepository } from "./mysql/login.repository";
 export = {
-  TestMySql: TestMySql,
+  AuthRepositorySql: AuthRepositorySql,
   LoginRespository: LoginRepository,
 };
