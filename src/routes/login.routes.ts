@@ -13,5 +13,12 @@ module.exports = function ({ LoginController }: any) {
     LoginController.getAllAccounts
   );
 
+  //Busqueda
+  router.get(
+    "/:account_id/buscar",
+    [AuthMiddleware, ValidarUsuarioMiddleware, AdminMiddleware.esAdministrador],
+    LoginController.searchAccounts
+  );
+
   return router;
 };
