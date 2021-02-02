@@ -20,4 +20,14 @@ export class LoginService {
     const data = await _loginrepository.searchAccounts(cadena, criterio);
     return data;
   }
+
+  public async setVipPlayer(account_id: string) {
+    const data = await _loginrepository.setVipPlayer(account_id);
+    return data;
+  }
+
+  public async removeVipPlayer(account_id: string) {
+    const data = await _loginrepository.removeVipPlayer(account_id);
+    return data;
+  }
 }

@@ -20,5 +20,17 @@ module.exports = function ({ LoginController }: any) {
     LoginController.searchAccounts
   );
 
+  //actualizar vip
+  router.put(
+    "/:account_id/setvip",
+    [AuthMiddleware, ValidarUsuarioMiddleware, AdminMiddleware.esAdministrador],
+    LoginController.setVipPlayer
+  );
+  router.put(
+    "/:account_id/removeVip",
+    [AuthMiddleware, ValidarUsuarioMiddleware, AdminMiddleware.esAdministrador],
+    LoginController.removeVipPlayer
+  );
+
   return router;
 };

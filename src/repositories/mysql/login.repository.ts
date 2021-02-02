@@ -49,4 +49,26 @@ export class LoginRepository implements LoginRespository {
 
     return rows as Login[];
   }
+
+  public async setVipPlayer(account_id: string): Promise<any> {
+    return await connector
+      .execute("UPDATE login SET level=1 WHERE account_id=? ", [account_id])
+      .then((r) => {
+        return "Cuenta VIP asignada.";
+      })
+      .catch((err) => {
+        return "Error en el servidor.";
+      });
+  }
+
+  public async removeVipPlayer(account_id: string): Promise<any> {
+    return await connector
+      .execute("UPDATE login SET level=0 WHERE account_id=? ", [account_id])
+      .then((r) => {
+        return "Cuenta VIP revocada.";
+      })
+      .catch((err) => {
+        return "Error en el servidor.";
+      });
+  }
 }
