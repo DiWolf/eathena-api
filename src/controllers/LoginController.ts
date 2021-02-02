@@ -26,15 +26,15 @@ export class LoginController {
   }
 
   async setVipPlayer(req: Request, res: Response) {
-    const { id } = req.query;
+    const { account_id } = req.body;
 
-    const data = await _loginservice.setVipPlayer(id);
+    const data = await _loginservice.setVipPlayer(account_id);
     return res.send(data);
   }
 
   async removeVipPlayer(req: Request, res: Response) {
-    const { id } = req.query;
-    const data = await _loginservice.removeVipPlayer(id);
+    const { account_id } = req.body;
+    const data = await _loginservice.removeVipPlayer(account_id);
     return res.send(data);
   }
 }
